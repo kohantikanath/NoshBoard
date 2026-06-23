@@ -1,0 +1,17 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+model Dish {
+  dishId      String  @id
+  dishName    String
+  imageUrl    String
+  isPublished Boolean @default(true)
+}
